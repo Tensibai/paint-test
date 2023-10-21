@@ -41,7 +41,7 @@ describe Image do
   end
 
   context "Changing 0,0 pixel color as zone change" do
-    it "Should return an image with inly this pixel changed and no error" do
+    it "Should return an image with only this pixel changed and no error" do
       img = Image.new(4,4,test_img)
       img.change_adjacent(0,0, [255,0,0])
       expect(img.datas[0]).to eq [255,0,0]
