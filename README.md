@@ -9,7 +9,7 @@ You'll need a ruby environment and bundler installed.
 run
 ```
 bundle install
-rspec -f documentation
+bundle exec rspec -f documentation
 ```
 
 ## Specs
