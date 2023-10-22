@@ -23,6 +23,8 @@ contiguous_replaced = [
 ]
 
 
+large_image = (1000*800).times.collect { [0,0,0] }
+puts("Pixel at 5 #{large_image[5]}")
 describe Image do
   context "With a 4x4 image with blue dots and replace all with red" do
     it "Should return a image with red dots" do
@@ -47,6 +49,13 @@ describe Image do
       expect(img.datas[0]).to eq [255,0,0]
       expect(img.datas[3]).to eq [0,0,0]
       expect(img.datas[5]).to eq [0,0,255]
+    end
+  end
+
+  context "Filing a large image with recursion" do
+    it "Should not raise an exception" do
+      img = Image.new(1000,800, large_image)
+      expect { img.change_adjacent(5,9,[255,0,0]) }.to_not raise_error
     end
   end
 end
